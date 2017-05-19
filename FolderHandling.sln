@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderHandling", "FolderHandling.csproj", "{FF631724-B3BE-4B6E-BB31-7F09DFA1F6EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestFolderHandling", "..\UnitTestFolderHandling\UnitTestFolderHandling.csproj", "{29F2EA22-A335-47A2-81B9-948A11B99EBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,12 @@ Global
 		{FF631724-B3BE-4B6E-BB31-7F09DFA1F6EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF631724-B3BE-4B6E-BB31-7F09DFA1F6EA}.Release|x64.ActiveCfg = Release|Any CPU
 		{FF631724-B3BE-4B6E-BB31-7F09DFA1F6EA}.Release|x64.Build.0 = Release|Any CPU
+		{29F2EA22-A335-47A2-81B9-948A11B99EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F2EA22-A335-47A2-81B9-948A11B99EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F2EA22-A335-47A2-81B9-948A11B99EBD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{29F2EA22-A335-47A2-81B9-948A11B99EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F2EA22-A335-47A2-81B9-948A11B99EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29F2EA22-A335-47A2-81B9-948A11B99EBD}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
