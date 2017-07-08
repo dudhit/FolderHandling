@@ -126,5 +126,34 @@ namespace SoloProjects.Dudhit.Utilities
         throw new DirectoryNotFoundException("Failure to write to log using FileSystemHelper", PTLE);
       }
     }
+
+    public static string FetchCurrentUserFolder() 
+    { 
+    return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    }
+    
+    public static bool DeleteFile(string path)
+    {
+      try
+      {
+        File.Delete(path);
+        if(!FileExists(path))
+          return true;
+         }
+
+      catch(UnauthorizedAccessException UAE)
+      {
+        throw new ApplicationException("Failure to delete file using FileSystemHelper", UAE);
+      }
+      catch(FileNotFoundException FNFE)
+      {
+        throw new FileNotFoundException("Failure to locate file using FileSystemHelper", FNFE);
+      }
+      catch(PathTooLongException PTLE)
+      {
+        throw new DirectoryNotFoundException("Failure to locate file using FileSystemHelper", PTLE);
+      }
+      return false;
+    }
   }
 }
