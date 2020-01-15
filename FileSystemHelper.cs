@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace SoloProjects.Dudhit.Utilities
+namespace Net.Dudhit.Utilities.FolderHandling
 {
   public static class FileSystemHelper
   {
@@ -30,7 +30,7 @@ namespace SoloProjects.Dudhit.Utilities
       }
       catch(PathTooLongException PTLE)
       {
-        throw new DirectoryNotFoundException("Failure to locate folder using FileSystemHelper", PTLE);
+        throw new DirectoryNotFoundException("Failure to traverse excessive folder tree using FileSystemHelper", PTLE);
       }
       return false;
 
@@ -127,11 +127,11 @@ namespace SoloProjects.Dudhit.Utilities
       }
     }
 
-    public static string FetchCurrentUserFolder() 
-    { 
-    return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+    public static string FetchCurrentUserFolder()
+    {
+      return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
     }
-    
+
     public static bool DeleteFile(string path)
     {
       try
@@ -139,7 +139,7 @@ namespace SoloProjects.Dudhit.Utilities
         File.Delete(path);
         if(!FileExists(path))
           return true;
-         }
+      }
 
       catch(UnauthorizedAccessException UAE)
       {
@@ -154,6 +154,25 @@ namespace SoloProjects.Dudhit.Utilities
         throw new DirectoryNotFoundException("Failure to locate file using FileSystemHelper", PTLE);
       }
       return false;
+    }
+
+    public static List<string> GetData(string source)
+    {
+      List<string> tempList = new List<string>();
+
+      try
+      {
+        using(StreamReader sr = new StreamReader(source))
+        {
+          while(sr.Peek() != -1)
+          {
+            tempList.Add(sr.ReadLine());
+          }
+        }
+      }
+      catch(FileNotFoundException fnfe) { string.Format("missing dataFile.txt.\n{0}\n", fnfe); }
+
+      return tempList;
     }
   }
 }
